@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizz Ryex | Por`tfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & DESIGN SYSTEM (DARK & COOL) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #09090b; /* Hitam pekat OLED / Premium dark */
+            color: #a1a1aa; /* Teks utama kelabu lembut */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #22c55e;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* --- GLOW EFFECTS (CYBERPUNK AMBIENT) --- */
+        .glow-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+            top: -10%;
+            right: -5%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .glow-bg-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+            bottom: 20%;
+            left: -10%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fafafa;
+        }
+
+        .logo span {
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            margin-left: 6px;
+        }
+
+        nav a {
+            margin-left: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #71717a;
+        }
+
+        nav a:hover, nav a.active {
+            color: #22c55e;
+            text-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 160px 8% 60px;
+            position: relative;
+        }
+
+        .avatar-container {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.2);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .avatar-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.4);
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #18181b;
+        }
+
+        .hero h3 {
+            font-size: 13px;
+            color: #22c55e;
+            margin-bottom: 16px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            background: rgba(34, 197, 94, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(34, 197, 94, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: #22c55e;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: #a1a1aa;
+            max-width: 620px;
+            margin-bottom: 35px;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-section {
+            padding: 80px 8% 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #22c55e;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #52525b;
+            font-size: 14px;
+            margin-bottom: 50px;
+        }
+
+        .grid-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: #111113;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-img-wrapper {
+            width: 100%;
+            height: 210px;
+            overflow: hidden;
+            background-color: #09090b;
+            border-bottom: 1px solid #27272a;
+            position: relative;
+        }
+
+        .project-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center;
+            transition: transform 0.6s ease, filter 0.6s ease;
+            filter: grayscale(20%) brightness(90%);
+        }
+
+        .project-card:hover .project-img-wrapper img {
+            transform: scale(1.04);
+            filter: grayscale(0%) brightness(100%);
+        }
+
+        .project-info {
+            padding: 26px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-tag {
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: #22c55e;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .project-info p {
+            color: #71717a;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* ACTION WRAPPER & RE-STYLED SINGLE BUTTON */
+        .project-actions {
+            margin-top: auto;
+        }
+
+        .btn-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            font-size: 13.5px;
+            font-weight: 700;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-align: center;
+            width: 100%;
+            background: #22c55e;
+            color: #000000;
+        }
+
+        .btn-action:hover {
+            background: #16a34a;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+        }
+
+        /* HOVER CARD PROJECT */
+        .project-card:hover {
+            border-color: rgba(34, 197, 94, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 197, 94, 0.05);
+            transform: translateY(-6px);
+        }
+
+        /* --- HUBUNGI SAYA / SOSIAL --- */
+        .social-section {
+            padding: 80px 8% 120px;
+            position: relative;
+        }
+
+        .grid-contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
+            gap: 30px;
+            max-width: 900px;
+            margin: 50px auto 0;
+            justify-content: center;
+        }
+
+        .card {
+            background: #111113;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 45px 35px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card svg {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #71717a;
+            font-size: 13.5px;
+            margin-bottom: 30px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 6px;
+            width: 100%;
+            transition: all 0.3s ease;
+            background: #1f1f23;
+            border: 1px solid #27272a;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+        .whatsapp-card:hover { border-color: #22c55e; }
+        .whatsapp-card:hover svg { fill: #22c55e; transform: scale(1.05); }
+        .whatsapp-card:hover .card-btn { background: #22c55e; color: #000000; border-color: #22c55e; box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
+
+        .telegram-card:hover { border-color: #3b82f6; }
+        .telegram-card:hover svg { fill: #3b82f6; transform: scale(1.05); }
+        .telegram-card:hover .card-btn { background: #3b82f6; color: #ffffff; border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #18181b;
+            font-size: 12px;
+            color: #4b5563;
+            background: #09090b;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- RESPONSIVE FOR MOBILE --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav a { margin-left: 20px; font-size: 13px; }
+            .hero { padding-top: 160px; }
+            .hero h1 { font-size: 40px; }
+            .grid-projects { grid-template-columns: 1fr; gap: 30px; }
+            .project-img-wrapper { height: 190px; }
+            .social-section { padding: 60px 5% 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-bg"></div>
+    <div class="glow-bg-2"></div>
+
+    <header>
+        <div class="logo">#FizzX8<span>Ry3x</span></spa></span></div>
+        <nav>
+            <a href="#home" class="active">./Home</a>
+            <a href="#projects">./Projects</a>
+            <a href="#contact">./Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="avatar-container">
+            <img src="https://files.catbox.moe/fsemzh.jpg" alt="Fizz Ry3x">
+        </div>
+        <h3></h3>
+        <h1>Fizz <span>R`y3x</span></h1>
+        <p>>_ WhatsApp Automation Modder & Node.js Engine Explorer. Membangun skrip bypass, enkripsi data, dan sistem bot tanpa malware.</p>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Prjoect <span>R`y3x</span></h2>
+        <p class="section-subtitle">Senarai modul sistem dan automasi skrip stabil yang telah dikompilasi</p>
+        
+        <div class="grid-projects">
+            
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://files.catbox.moe/gnev9t.png" alt="Ryax - Exter V1 Banner">
+                </div>
+                <div class="project-info">
+                    <div class="project-tag">// Core.Automation</div>
+                    <h3>Ryax - Exter V1</h3>
+                    <p>Optimasi engine Baileys WhatsApp dengan alokasi memori cache modular tinggi, teruji bypass limitasi sistem Android Termux.</p>
+                    
+                    <div class="project-actions">
+                        <a href="https://t.me/zxotravk_bot" target="_blank" class="btn-action">Cheke`d</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://files.catbox.moe/pt04es.png" alt="REST API Data Extractor Banner">
+                </div>
+                <div class="project-info">
+                    <div class="project-tag">// Web.Scraper</div>
+                    <h3>REST API Data Extractor</h3>
+                    <p>Alat injeksi pengambilan data otomatis menggunakan Cheerio/Axios terintegrasi skema anti-blocking IP.</p>
+                    
+                    <div class="project-actions">
+                        <a href="https://fizz-ry3xapi.vercel.app" target="_blank" class="btn-action">chek`ed</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="social-section">
+        <h2 class="section-title">Channel <span>R`y3x</span></h2>
+        <p class="section-subtitle">Pautkan terminal anda ke dalam rangkaian peranti utama kami</p>
+        
+        <div class="grid-contacts">
+            <div class="card whatsapp-card">
+                <svg viewBox="0 0 24 24" fill="#52525b">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.288 1.479 4.884 1.48 5.534 0 10.04-4.505 10.042-10.04 0-2.684-1.045-5.205-2.943-7.105-1.9-1.9-4.417-2.946-7.105-2.947-5.54 0-10.043 4.505-10.046 10.042-.002 1.76.471 3.326 1.439 4.817l-.993 3.623 3.722-.975zm11.233-5.98c-.3-.15-1.773-.875-2.047-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-1.03-.518-1.84-1.035-2.564-1.703-.623-.574-1.035-1.258-1.157-1.457-.123-.2-.013-.308.087-.407.09-.089.2-.233.3-.35.1-.117.133-.2.2-.333.067-.133.033-.25-.017-.35-.05-.1-475-1.144-.65-1.563-.175-.418-.367-.363-.5-.363h-.425c-.15 0-.4.05-.6.275-.2.225-.775.75-.775 1.83 0 1.078.783 2.114.892 2.264.11.15 1.54 2.35 3.73 3.3 1.19.518 1.95.685 2.62.742.67.058 1.29-.026 1.773-.1.54-.08 1.774-.726 2.024-1.426.25-.7.25-1.29.175-1.425-.076-.135-.276-.213-.576-.363z"/>
+                </svg>
+                <h3>WhatsApp Broadcast</h3>
+                <p>Jalur distribusi skrip patch, update modul, dan log logistik bot.</p>
+                <a href="https://whatsapp.com/channel/0029Vb75AwU4NVihAqtr2f0G" target="_blank" class="card-btn">CONNECT_NODE</a>
+            </div>
+
+            <div class="card telegram-card">
+                <svg viewBox="0 0 24 24" fill="#52525b">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.875 8.832c-.141.624-.511.777-1.034.483l-2.85-2.1c-.347-.333-.122-.511.303-.94l7.464-6.741c.325-.289-.07-.444-.497-.162l-9.222 5.807-2.76-.863c-.6-.188-.612-.6.126-.888l10.776-4.154c.499-.184.938.115.77 1.026z"/>
+                </svg>
+                <h3>Telegram Mainframe</h3>
+                <p>Komunitas debugging, manajemen VPS, repositori Git, dan enkripsi module.</p>
+                <a href="https://t.me/FizzStock" target="_blank" class="card-btn">CONNECT_NODE</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 // JOKOWII_LEGACY</p>
+    </footer>
+
+</body>
+</html>
