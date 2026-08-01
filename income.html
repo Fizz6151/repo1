@@ -1,1 +1,120 @@
 
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pendapatan 2022–2026 — Script Seller</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="smoke-layer">
+  <div class="smoke-blob b1"></div>
+  <div class="smoke-blob b2"></div>
+  <div class="smoke-blob b3"></div>
+  <div class="smoke-blob b4"></div>
+  <div class="smoke-blob b5"></div>
+  <div class="smoke-blob b6"></div>
+</div>
+<div class="grid-overlay"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><span class="dot"></span>nama.dev</div>
+    <div class="navlinks">
+      <a href="index.html">home</a>
+      <a href="income.html" class="active">pendapatan</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:8px;">
+  <div class="wrap">
+    <div class="eyebrow">my income</div>
+    <h1>my income start <span class="accent">2022 — 2026</span></h1>
+    <p class="lead">Every year, the figures rise little by little—the result of consistently building and selling my own scripts.
+</p>
+  </div>
+</header>
+
+<section style="padding-top:20px;">
+  <div class="wrap">
+    <div class="terminal chart-panel">
+      <div class="terminal-bar">
+        <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
+        <span class="path">chart_pendapatan.svg</span>
+      </div>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 900 340" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#56e8e0"/>
+              <stop offset="100%" stop-color="#2f6fed"/>
+            </linearGradient>
+          </defs>
+
+          <line x1="40" y1="280" x2="860" y2="280" stroke="rgba(91,140,255,0.25)" stroke-width="1"/>
+
+          <!-- 2022: RM400 -->
+          <rect class="bar" x="60" y="280" width="110" height="0" data-h="64" rx="6" fill="url(#barGrad)"/>
+          <text x="115" y="204" text-anchor="middle" fill="#e7ecfa" font-family="JetBrains Mono" font-size="16" font-weight="600" class="val" data-y="204">RM400</text>
+          <text x="115" y="308" text-anchor="middle" fill="#8592b4" font-family="JetBrains Mono" font-size="14">2022</text>
+
+          <!-- 2023: RM600 -->
+          <rect class="bar" x="220" y="280" width="110" height="0" data-h="96" rx="6" fill="url(#barGrad)"/>
+          <text x="275" y="172" text-anchor="middle" fill="#e7ecfa" font-family="JetBrains Mono" font-size="16" font-weight="600" class="val" data-y="172">RM600</text>
+          <text x="275" y="308" text-anchor="middle" fill="#8592b4" font-family="JetBrains Mono" font-size="14">2023</text>
+
+          <!-- 2024: RM800 -->
+          <rect class="bar" x="380" y="280" width="110" height="0" data-h="128" rx="6" fill="url(#barGrad)"/>
+          <text x="435" y="140" text-anchor="middle" fill="#e7ecfa" font-family="JetBrains Mono" font-size="16" font-weight="600" class="val" data-y="140">RM800</text>
+          <text x="435" y="308" text-anchor="middle" fill="#8592b4" font-family="JetBrains Mono" font-size="14">2024</text>
+
+          <!-- 2025: RM1000 -->
+          <rect class="bar" x="540" y="280" width="110" height="0" data-h="160" rx="6" fill="url(#barGrad)"/>
+          <text x="595" y="108" text-anchor="middle" fill="#e7ecfa" font-family="JetBrains Mono" font-size="16" font-weight="600" class="val" data-y="108">RM1000</text>
+          <text x="595" y="308" text-anchor="middle" fill="#8592b4" font-family="JetBrains Mono" font-size="14">2025</text>
+
+          <!-- 2026: RM1500 -->
+          <rect class="bar" x="700" y="280" width="110" height="0" data-h="240" rx="6" fill="url(#barGrad)"/>
+          <text x="755" y="28" text-anchor="middle" fill="#56e8e0" font-family="JetBrains Mono" font-size="17" font-weight="700" class="val" data-y="28">RM1500</text>
+          <text x="755" y="308" text-anchor="middle" fill="#8592b4" font-family="JetBrains Mono" font-size="14">2026</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:8px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">log terperinci</div>
+      <h2>My Annual Income Records</h2>
+    </div>
+    <div class="terminal" style="padding: 8px 8px 20px;">
+      <table class="income-table">
+        <thead>
+          <tr><th>Year</th><th>Income</th><th>Growth</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="year">2022</td><td class="amount">RM400</td><td><span class="growth-badge">titik mula</span></td></tr>
+          <tr><td class="year">2023</td><td class="amount">RM600</td><td><span class="growth-badge">+50%</span></td></tr>
+          <tr><td class="year">2024</td><td class="amount">RM800</td><td><span class="growth-badge">+33%</span></td></tr>
+          <tr><td class="year">2025</td><td class="amount">RM1000</td><td><span class="growth-badge">+25%</span></td></tr>
+          <tr><td class="year">2026</td><td class="amount">RM1500</td><td><span class="growth-badge">+50%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 nama.dev — dibina dengan reka bentuk sendiri</p>
+    <p>t.me/username</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
